@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'button_values.dart';
 
 class KalkulatorScreen extends StatefulWidget {
   const KalkulatorScreen({super.key});
@@ -10,6 +11,7 @@ class KalkulatorScreen extends StatefulWidget {
 class _KalkulatorScreenState extends State<KalkulatorScreen> {
   @override
   Widget build(BuildContext context) {
+    final screenZize = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         bottom: false,
@@ -33,10 +35,24 @@ class _KalkulatorScreenState extends State<KalkulatorScreen> {
               ),
             ),
             //buttons
-            Wrap(children: []),
+            Wrap(
+              children: Btn.buttonsValues
+                  .map(
+                    (value) => SizedBox(
+                      width: screenZize.width / 4,
+                      height: screenZize.width / 5,
+                      child: buildButton(value),
+                    ),
+                  )
+                  .toList(),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Widget buildButton(value) {
+    return Text(value);
   }
 }
