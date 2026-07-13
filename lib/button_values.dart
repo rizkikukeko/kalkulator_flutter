@@ -4,7 +4,7 @@ class Btn {
   static const String per = "%";
   static const String multiply = "x";
   static const String divide = "÷";
-  static const String plus = "+";
+  static const String add = "+";
   static const String subtract = "-";
   static const String calculate = "=";
   static const String dot = ".";
@@ -36,7 +36,7 @@ class Btn {
     n1,
     n2,
     n3,
-    plus,
+    add,
     dot,
     n0,
     calculate,

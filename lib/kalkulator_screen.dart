@@ -20,6 +20,7 @@ class _KalkulatorScreenState extends State<KalkulatorScreen> {
             //output
             Expanded(
               child: SingleChildScrollView(
+                reverse: true,
                 child: Container(
                   alignment: Alignment.bottomRight,
                   padding: const EdgeInsets.all(16),
@@ -53,6 +54,31 @@ class _KalkulatorScreenState extends State<KalkulatorScreen> {
   }
 
   Widget buildButton(value) {
-    return Text(value);
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Material(
+        color: [Btn.del, Btn.clr].contains(value)
+            ? Colors.blueGrey
+            : [
+                Btn.per,
+                Btn.multiply,
+                Btn.add,
+                Btn.subtract,
+                Btn.divide,
+                Btn.calculate,
+              ].contains(value)
+            ? Colors.orange
+            : Colors.black87,
+        clipBehavior: Clip.hardEdge,
+        shape: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white24),
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: InkWell(
+          onTap: () {},
+          child: Center(child: Text(value)),
+        ),
+      ),
+    );
   }
 }
